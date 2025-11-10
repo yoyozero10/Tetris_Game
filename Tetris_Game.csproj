@@ -1,0 +1,194 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Assets\**" />
+    <Compile Remove="Audio\**" />
+    <Compile Remove="Button\**" />
+    <EmbeddedResource Remove="Assets\**" />
+    <EmbeddedResource Remove="Audio\**" />
+    <EmbeddedResource Remove="Button\**" />
+    <None Remove="Assets\**" />
+    <None Remove="Audio\**" />
+    <None Remove="Button\**" />
+    <Page Remove="Assets\**" />
+    <Page Remove="Audio\**" />
+    <Page Remove="Button\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="App.config" />
+    <None Remove="resources\assets\Background.jpg" />
+    <None Remove="resources\assets\BackGroundInGame.png" />
+    <None Remove="resources\assets\BackgroundInstruction.png" />
+    <None Remove="resources\assets\BackgroundLeaderboard.png" />
+    <None Remove="resources\assets\BackgroundPause.png" />
+    <None Remove="resources\assets\BackgroundPlayer.png" />
+    <None Remove="resources\assets\BackgroundRegister.png" />
+    <None Remove="resources\assets\Block-Empty.png" />
+    <None Remove="resources\assets\Block-I.png" />
+    <None Remove="resources\assets\Block-J.png" />
+    <None Remove="resources\assets\Block-L.png" />
+    <None Remove="resources\assets\Block-O.png" />
+    <None Remove="resources\assets\Block-S.png" />
+    <None Remove="resources\assets\Block-T.png" />
+    <None Remove="resources\assets\Block-Z.png" />
+    <None Remove="resources\assets\InGame.png" />
+    <None Remove="resources\assets\Status_Female.png" />
+    <None Remove="resources\assets\Status_Male.png" />
+    <None Remove="resources\assets\TextBox.png" />
+    <None Remove="resources\assets\TileBlue.png" />
+    <None Remove="resources\assets\TileCyan.png" />
+    <None Remove="resources\assets\TileEmpty.png" />
+    <None Remove="resources\assets\TileGreen.png" />
+    <None Remove="resources\assets\TileOrange.png" />
+    <None Remove="resources\assets\TilePurple.png" />
+    <None Remove="resources\assets\TileRed.png" />
+    <None Remove="resources\assets\TileYellow.png" />
+    <None Remove="resources\audio\BackGroundAudio.wav" />
+    <None Remove="resources\audio\ClickedAudio.wav" />
+    <None Remove="resources\audio\GameOverAudio.wav" />
+    <None Remove="resources\audio\HoverAudio.wav" />
+    <None Remove="resources\audio\LevelUpAudio.wav" />
+    <None Remove="resources\audio\PlaceBlockAudio.wav" />
+    <None Remove="resources\audio\RemoveRowAudio.wav" />
+    <None Remove="resources\button\ButtonBack_Default.png" />
+    <None Remove="resources\button\ButtonContinue_Default.png" />
+    <None Remove="resources\button\ButtonExit_Default.png" />
+    <None Remove="resources\button\ButtonHome_Default.png" />
+    <None Remove="resources\button\ButtonInstruction_Default.png" />
+    <None Remove="resources\button\ButtonMute_Default.png" />
+    <None Remove="resources\button\ButtonOk_Default.png" />
+    <None Remove="resources\button\ButtonPause_Default.png" />
+    <None Remove="resources\button\ButtonPlay_Clicked.png" />
+    <None Remove="resources\button\ButtonPlay_Default.png" />
+    <None Remove="resources\button\ButtonPlay_Hover.png" />
+    <None Remove="resources\button\ButtonQuit_Clicked.png" />
+    <None Remove="resources\button\ButtonQuit_Default.png" />
+    <None Remove="resources\button\ButtonQuit_Hover.png" />
+    <None Remove="resources\button\ButtonRank_Clicked.png" />
+    <None Remove="resources\button\ButtonRank_Default.png" />
+    <None Remove="resources\button\ButtonRank_Hover.png" />
+    <None Remove="resources\button\ButtonUnmute_Default.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.4.0" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="App.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="resources\assets\Background.jpg" />
+    <Resource Include="resources\assets\BackGroundInGame.png" />
+    <Resource Include="resources\assets\BackgroundInstruction.png" />
+    <Resource Include="resources\assets\BackgroundLeaderboard.png" />
+    <Resource Include="resources\assets\BackgroundPause.png" />
+    <Resource Include="resources\assets\BackgroundPlayer.png" />
+    <Resource Include="resources\assets\BackgroundRegister.png" />
+    <Resource Include="resources\assets\Block-Empty.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\Block-I.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\Block-J.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\Block-L.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\Block-O.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\Block-S.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\Block-T.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\Block-Z.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\InGame.png" />
+    <Resource Include="resources\assets\Status_Female.png" />
+    <Resource Include="resources\assets\Status_Male.png" />
+    <Resource Include="resources\assets\TextBox.png" />
+    <Resource Include="resources\assets\TileBlue.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\TileCyan.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\TileEmpty.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\TileGreen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\TileOrange.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\TilePurple.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\TileRed.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="resources\assets\TileYellow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Content Include="resources\audio\BackGroundAudio.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\audio\ClickedAudio.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\audio\GameOverAudio.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\audio\HoverAudio.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\audio\LevelUpAudio.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\audio\PlaceBlockAudio.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\audio\RemoveRowAudio.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="resources\button\ButtonBack_Default.png" />
+    <Resource Include="resources\button\ButtonContinue_Default.png" />
+    <Resource Include="resources\button\ButtonExit_Default.png" />
+    <Resource Include="resources\button\ButtonHome_Default.png" />
+    <Resource Include="resources\button\ButtonInstruction_Default.png" />
+    <Resource Include="resources\button\ButtonMute_Default.png" />
+    <Resource Include="resources\button\ButtonOk_Default.png" />
+    <Resource Include="resources\button\ButtonPause_Default.png" />
+    <Resource Include="resources\button\ButtonPlay_Clicked.png" />
+    <Resource Include="resources\button\ButtonPlay_Default.png" />
+    <Resource Include="resources\button\ButtonPlay_Hover.png" />
+    <Resource Include="resources\button\ButtonQuit_Clicked.png" />
+    <Resource Include="resources\button\ButtonQuit_Default.png" />
+    <Resource Include="resources\button\ButtonQuit_Hover.png" />
+    <Resource Include="resources\button\ButtonRank_Clicked.png" />
+    <Resource Include="resources\button\ButtonRank_Default.png" />
+    <Resource Include="resources\button\ButtonRank_Hover.png" />
+    <Resource Include="resources\button\ButtonUnmute_Default.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,21 @@
+bin/
+obj/
+.vs/
+docs/
+*.user
+*.suo
+*.db
+*.cache
+
+# Build outputs
+/Tetris_Game/bin/
+/Tetris_Game/obj/
+
+# Rider/VS Code
+.idea/
+.vscode/
+
+# User-specific files
+*.log
+
+
