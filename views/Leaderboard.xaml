@@ -1,0 +1,173 @@
+﻿<Window x:Class="Tetris_Game.Leaderboard"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Tetris_Game"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent"
+        ResizeMode="NoResize"
+        Title="Leaderboard" Height="600" Width="500"
+        WindowStartupLocation="CenterScreen">
+    <Grid Margin="0,0,-3,0">
+        <Grid.Background>
+            <ImageBrush ImageSource="../resources/assets/BackgroundLeaderboard.png" Stretch="None"/>
+        </Grid.Background>
+
+        <TextBox x:Name="NamePlayerTop1"
+                 HorizontalAlignment="Left" 
+                 Margin="312,166,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="120" 
+                 Height="24"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 FontSize="20"
+                 FontFamily="Impact"
+                 Foreground="#ffbd59"/>
+
+        <TextBox x:Name="NamePlayerTop2"
+                 HorizontalAlignment="Left" 
+                 Margin="312,271,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="120" 
+                 Height="24"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 FontSize="20"
+                 FontFamily="Impact"
+                 Foreground="#ffbd59"/>
+
+        <TextBox x:Name="NamePlayerTop3"
+                 HorizontalAlignment="Left" 
+                 Margin="312,376,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="120" 
+                 Height="24"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 FontSize="20"
+                 FontFamily="Impact"
+                 Foreground="#ffbd59"/>
+
+        <TextBox x:Name="NamePlayerTop4"
+                 HorizontalAlignment="Left" 
+                 Margin="312,482,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="120" 
+                 Height="24"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 FontSize="20"
+                 FontFamily="Impact"
+                 Foreground="#ffbd59"/>
+
+        <TextBox x:Name="ScoreTop1"
+                 HorizontalAlignment="Left" 
+                 Margin="312,193,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="120" 
+                 Height="20"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 FontSize="20"
+                 FontFamily="Impact"
+                 Foreground="#ffbd59"/>
+
+        <TextBox x:Name="ScoreTop2"
+                 HorizontalAlignment="Left" 
+                 Margin="312,298,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="120" 
+                 Height="20"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 FontSize="20"
+                 FontFamily="Impact"
+                 Foreground="#ffbd59"/>
+
+        <TextBox x:Name="ScoreTop3"
+                 HorizontalAlignment="Left" 
+                 Margin="312,403,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="120" 
+                 Height="20"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 FontSize="20"
+                 FontFamily="Impact"
+                 Foreground="#ffbd59"/>
+
+        <TextBox x:Name="ScoreTop4"
+                 HorizontalAlignment="Left" 
+                 Margin="312,509,0,0" 
+                 TextWrapping="Wrap" 
+                 VerticalAlignment="Top" 
+                 Width="120" 
+                 Height="20"
+                 Background="Transparent"
+                 BorderThickness="0"
+                 FontSize="20"
+                 FontFamily="Impact"
+                 Foreground="#ffbd59"/>
+
+        <Button x:Name="ButtonExit"
+                HorizontalAlignment="Left" 
+                Margin="434,41,0,0" 
+                VerticalAlignment="Top" 
+                Height="50" 
+                Width="50" 
+                BorderThickness="0"
+                Click="ButtonExit_Click">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="OverridesDefaultStyle" Value="True"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Image Source="../resources/button/ButtonExit_Default.png" Stretch="Fill"/>
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <ScaleTransform ScaleX="1" ScaleY="1"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Setter Property="Opacity" Value="1"/>
+
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.8"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="1.05" ScaleY="1.05"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value="0.6"/>
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <ScaleTransform ScaleX="0.9" ScaleY="0.9"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+    </Grid>
+</Window>
