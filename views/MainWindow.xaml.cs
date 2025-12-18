@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TaskbarClock;
 
 namespace Tetris_Game
 {
@@ -61,6 +59,7 @@ namespace Tetris_Game
 
             imageControls = SetUpGameCanvas(gameState.GameGrid);
             SetTime();
+            LoadPlayerData();
         }
 
         private void SetTime()
@@ -195,11 +194,15 @@ namespace Tetris_Game
         }
 
 
+        private bool isGameLoopRunning = false;
+
         private async Task GameLoop()
         {
+            if (isGameLoopRunning) return;
+            isGameLoopRunning = true;
+
             Draw(gameState);
             DisplayStatus();
-            LoadPlayerData();
             gameState.backgroundAudio.Play();
 
             while (!gameState.GameOver)
@@ -222,7 +225,6 @@ namespace Tetris_Game
                     gameState.backgroundAudio.Continue();
                 }
 
-
                 int delay = Math.Max(100, 500 - (gameState.Level - 1) * 50);
                 await Task.Delay(delay);
 
@@ -234,6 +236,7 @@ namespace Tetris_Game
                 }
             }
 
+            isGameLoopRunning = false;
             gameState.backgroundAudio.Stop();
             gameState.gameOverAudio.Play();
             ShowGameOverMenu();
@@ -347,6 +350,7 @@ namespace Tetris_Game
         private async void PlayAgain_Click(object sender, RoutedEventArgs e)
         {
             clickedAudio.Play();
+            isGameLoopRunning = false;
             gameState = new GameState();
             SetTime();
             GameOverMenu.Visibility = Visibility.Hidden;
@@ -406,10 +410,6 @@ namespace Tetris_Game
             if (!gameState.GameOver)
             {
                 timer.Start();
-                Task.Run(async () =>
-                {
-                    await GameLoop();
-                });
             }
         }
     }
