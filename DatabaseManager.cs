@@ -1,5 +1,10 @@
-using System.Configuration;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Configuration;
 using MySql.Data.MySqlClient;
 
 namespace Tetris_Game
@@ -16,7 +21,6 @@ namespace Tetris_Game
         public DataTable ExecuteQuery(string query, params MySqlParameter[] parameters)
         {
             using var conn = new MySqlConnection(connectionString);
-            conn.Open();
             using var cmd = new MySqlCommand(query, conn);
             cmd.Parameters.AddRange(parameters);
 

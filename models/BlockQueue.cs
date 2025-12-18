@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Tetris_Game
 {
@@ -31,15 +35,12 @@ namespace Tetris_Game
         public Block GetAndUpdate()
         {
             Block block = NextBlock;
-            
-            // Ensure next block is different from current
-            Block nextBlock;
+
             do
             {
-                nextBlock = RandomBlock();
-            } while (block.Id == nextBlock.Id);
-            
-            NextBlock = nextBlock;
+                NextBlock = RandomBlock();
+            } while (block.Id == NextBlock.Id);
+
             return block;
         }
     }
