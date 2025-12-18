@@ -1,4 +1,12 @@
 ﻿using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Linq;
+using System.Media;
+using System.Runtime.Versioning;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms.PropertyGridInternal;
 using NAudio.Wave;
 
 namespace Tetris_Game
@@ -20,16 +28,15 @@ namespace Tetris_Game
         public const int UpLevel = 10;
         public int clearedRow = 0;
         public Block HeldBlock { get; private set; }
-        public bool CanHold { get; private set; }
-        private static readonly int[] BasePoint = { 0, 100, 300, 500, 800 };
-        private const int MaxBasePointIndex = 4;
+        public bool CamHold { get; private set; }
+        public int[] BasePoint = new int[5] { 0, 100, 300, 500, 800 };
 
         public GameState()
         {
             GameGrid = new GameGrid(22, 10);
             BlockQueue = new BlockQueue();
             CurrentBlock = BlockQueue.GetAndUpdate();
-            CanHold = true;
+            CamHold = true;
 
             backgroundAudio = new AudioManager("resources/audio/BackGroundAudio.wav");
             gameOverAudio = new AudioManager("resources/audio/GameOverAudio.wav");
@@ -67,7 +74,7 @@ namespace Tetris_Game
 
         public void HoldBlock()
         {
-            if (!CanHold)
+            if (!CamHold)
                 return;
 
             if (HeldBlock == null)
@@ -82,7 +89,7 @@ namespace Tetris_Game
                 HeldBlock = tmp;
             }
 
-            CanHold = false;
+            CamHold = false;
         }
 
         public void RotateBlockCW()
@@ -143,8 +150,7 @@ namespace Tetris_Game
 
             if (rowsCleared > 0)
             {
-                int pointIndex = Math.Min(rowsCleared, MaxBasePointIndex);
-                Score += BasePoint[pointIndex] * Level;
+                Score += (BasePoint[rowsCleared] * Level);
                 removeRowAudio.Play();
             }
 
@@ -155,7 +161,7 @@ namespace Tetris_Game
             else
             {
                 CurrentBlock = BlockQueue.GetAndUpdate();
-                CanHold = true;
+                CamHold = true;
             }
         }
 
@@ -173,12 +179,10 @@ namespace Tetris_Game
         private int TileDropDistance(Position p)
         {
             int drop = 0;
-            int nextRow = p.Row + drop + 1;
 
-            while (GameGrid.IsEmpty(nextRow, p.Column))
+            while (GameGrid.IsEmpty(p.Row + drop + 1, p.Column))
             {
                 drop++;
-                nextRow++;
             }
 
             return drop;
