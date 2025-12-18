@@ -1,7 +1,19 @@
-﻿using System;
+﻿using NAudio.Wave;
+using System;
+using System.Collections.Generic;
 using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace Tetris_Game
 {
@@ -31,14 +43,14 @@ namespace Tetris_Game
                 string query = @"SELECT UserName, BestScore, BestLevel FROM Goal ORDER BY BestScore DESC LIMIT 4";
                 var dataTable = dbManager.ExecuteQuery(query);
 
-                var nameControls = new[] { leaderboard.NamePlayerTop1, leaderboard.NamePlayerTop2, leaderboard.NamePlayerTop3, leaderboard.NamePlayerTop4 };
-                var scoreControls = new[] { leaderboard.ScoreTop1, leaderboard.ScoreTop2, leaderboard.ScoreTop3, leaderboard.ScoreTop4 };
-
-                for (int i = 0; i < nameControls.Length && i < dataTable.Rows.Count; i++)
-                {
-                    nameControls[i].Text = dataTable.Rows[i]["UserName"].ToString();
-                    scoreControls[i].Text = dataTable.Rows[i]["BestScore"].ToString();
-                }
+                if (dataTable.Rows.Count > 0) leaderboard.NamePlayerTop1.Text = dataTable.Rows[0]["UserName"].ToString();
+                if (dataTable.Rows.Count > 0) leaderboard.ScoreTop1.Text = dataTable.Rows[0]["BestScore"].ToString();
+                if (dataTable.Rows.Count > 1) leaderboard.NamePlayerTop2.Text = dataTable.Rows[1]["UserName"].ToString();
+                if (dataTable.Rows.Count > 1) leaderboard.ScoreTop2.Text = dataTable.Rows[1]["BestScore"].ToString();
+                if (dataTable.Rows.Count > 2) leaderboard.NamePlayerTop3.Text = dataTable.Rows[2]["UserName"].ToString();
+                if (dataTable.Rows.Count > 2) leaderboard.ScoreTop3.Text = dataTable.Rows[2]["BestScore"].ToString();
+                if (dataTable.Rows.Count > 3) leaderboard.NamePlayerTop4.Text = dataTable.Rows[3]["UserName"].ToString();
+                if (dataTable.Rows.Count > 3) leaderboard.ScoreTop4.Text = dataTable.Rows[3]["BestScore"].ToString();
             }
             catch (Exception ex)
             {
