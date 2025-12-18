@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace Tetris_Game
 {
     internal class GameGrid
@@ -24,14 +19,14 @@ namespace Tetris_Game
             grid = new int[rows, columns];
         }
 
-        public bool IsInsite(int r, int c)
+        public bool IsInside(int r, int c)
         {
             return r >= 0 && r < Rows && c >= 0 && c < Columns;
         }
 
         public bool IsEmpty(int r, int c)
         {
-            return IsInsite(r, c) && grid[r, c] == 0;
+            return IsInside(r, c) && grid[r, c] == 0;
         }
 
         public bool IsRowFull(int r)
@@ -82,8 +77,10 @@ namespace Tetris_Game
                     ClearRow(r);
                     cleared++;
                 }
-                else if (cleared > 0) 
+                else if (cleared > 0)
+                {
                     MoveDownRows(r, cleared);
+                }
             }
 
             return cleared;
