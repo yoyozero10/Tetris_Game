@@ -58,8 +58,7 @@
     [cite_start]<None Remove="resources\audio\ClickedAudio.wav" /> [cite: 3]
     [cite_start]<None Remove="resources\audio\GameOverAudio.wav" /> [cite: 3]
     [cite_start]<None Remove="resources\audio\HoverAudio.wav" /> [cite: 3]
-    <None 
- [cite_start]Remove="resources\audio\LevelUpAudio.wav" /> [cite: 4]
+    <None Remove="resources\audio\LevelUpAudio.wav" />
     [cite_start]<None Remove="resources\audio\PlaceBlockAudio.wav" /> [cite: 4]
     [cite_start]<None Remove="resources\audio\RemoveRowAudio.wav" /> [cite: 4]
     [cite_start]<None Remove="resources\button\ButtonBack_Default.png" /> [cite: 4]
